@@ -16,7 +16,7 @@ with open("styles/style.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 st.markdown("""
-<h1 class="title">🎓 QUANTIRO AI ASSISTANT</h1>
+<h1 class="title">QUANTIRO AI ASSISTANT</h1>
 """, unsafe_allow_html=True)
 
 if "session_id" not in st.session_state:
