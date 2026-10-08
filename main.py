@@ -8,7 +8,7 @@ load_dotenv()
 
 BACKEND_URL = os.getenv("BACKEND_URL") # Default to localhost if not set
 
-st.set_page_config(page_title="Assistant", page_icon="🎓",layout="centered")
+st.set_page_config(page_title="Assistant", page_icon="",layout="centered")
 
 
 # LOADING CSS
@@ -33,7 +33,7 @@ if prompt := st.chat_input("Ask about our courses, AI automation , marketing ser
     with st.chat_message("user"):
         st.markdown(prompt)
 
-    with st.chat_message("assistant"):
+    with st.chat_message("assistant",avatar="quantiro_avatar.png"):
         with st.spinner("Thinking..."):
             try:
                 r = requests.post(
