@@ -3,24 +3,41 @@ import uuid
 import requests
 import streamlit as st
 from dotenv import load_dotenv
+import base64
 
 load_dotenv()
 
 BACKEND_URL = os.getenv("BACKEND_URL") # Default to localhost if not set
-AVATAR_PATH='quantiro_animated_avatar_clean.gif'
 st.set_page_config(page_title="Assistant", page_icon="quantiro_avatar.png",layout="centered")
-
 
 # LOADING CSS
 with open("styles/style.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
+# avatar code
+
+AVATAR_PATH='quantiro_animated_avatar_clean.gif'
+if not os.path.exists(AVATAR_PATH):
+    st.error(f"Avatar file not found: {AVATAR_PATH}")
+    st.stop()
+
+with open(AVATAR_PATH, "rb") as avatar_file:
+    avatar_base64 = base64.b64encode(avatar_file.read()).decode()
+
+
 st.markdown(
     f"""
     <div class="assistant-header">
-        <img src="{AVATAR_PATH}" class="assistant-avatar">
+        <img 
+            src="data:image/gif;base64,{avatar_base64}" 
+            class="assistant-avatar"
+        >
+
         <div class="assistant-info">
-            <div class="assistant-title">QUANTIRO AI ASSISTANT</div>
+            <div class="assistant-title">
+                QUANTIRO AI ASSISTANT
+            </div>
+
             <div class="assistant-status">
                 <span class="status-dot"></span>
                 Online
@@ -30,6 +47,9 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
+#  chat hadnling from here
+
 
 if "session_id" not in st.session_state:
     st.session_state.session_id = str(uuid.uuid4())
