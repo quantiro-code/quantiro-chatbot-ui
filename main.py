@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 BACKEND_URL = os.getenv("BACKEND_URL") # Default to localhost if not set
-
+AVATAR_PATH='quantiro_animated_avatar_clean.gif'
 st.set_page_config(page_title="Assistant", page_icon="quantiro_avatar.png",layout="centered")
 
 
@@ -15,9 +15,21 @@ st.set_page_config(page_title="Assistant", page_icon="quantiro_avatar.png",layou
 with open("styles/style.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-st.markdown("""
-<h1 class="title">QUANTIRO AI ASSISTANT</h1>
-""", unsafe_allow_html=True)
+st.markdown(
+    f"""
+    <div class="assistant-header">
+        <img src="{AVATAR_PATH}" class="assistant-avatar">
+        <div class="assistant-info">
+            <div class="assistant-title">QUANTIRO AI ASSISTANT</div>
+            <div class="assistant-status">
+                <span class="status-dot"></span>
+                Online
+            </div>
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 if "session_id" not in st.session_state:
     st.session_state.session_id = str(uuid.uuid4())

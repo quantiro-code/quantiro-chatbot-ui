@@ -11,3 +11,46 @@
     border-radius: 12px;
     padding: 12px;
 }
+
+.assistant-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 25px;
+}
+
+.assistant-avatar {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.assistant-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.assistant-title {
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.assistant-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    margin-top: 3px;
+    opacity: 0.75;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    display: inline-block;
+}
