@@ -44,7 +44,8 @@ if prompt := st.chat_input("Ask about our courses, AI automation , marketing ser
                 r.raise_for_status()
                 reply = r.json()["reply"]
             except Exception as e:
-                reply = f"Sorry, something went wrong connecting to the backend: {e}"
+                print("error : ",e)
+                reply = f"Sorry, I’m temporarily unable to respond. Please try again shortly."
             st.markdown(reply)
 
     st.session_state.history.append({"role": "assistant", "content": reply})
