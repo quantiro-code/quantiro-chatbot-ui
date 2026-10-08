@@ -28,24 +28,24 @@ with open(AVATAR_PATH, "rb") as avatar_file:
 st.markdown(
     f"""
     <div class="assistant-header">
-        <img 
-            src="data:image/gif;base64,{avatar_base64}" 
-            class="assistant-avatar"
-        >
+        <div class="assistant-avatar-container">
+            <img
+                src="data:image/gif;base64,{avatar_base64}"
+                class="assistant-avatar"
+            />
+        </div>
 
         <div class="assistant-info">
-            <div class="assistant-title">
-                QUANTIRO AI ASSISTANT
-            </div>
+            <div class="assistant-title">QUANTIRO AI ASSISTANT</div>
 
             <div class="assistant-status">
                 <span class="status-dot"></span>
-                Online
+                <span>Online</span>
             </div>
         </div>
     </div>
     """,
-    unsafe_allow_html=True
+    unsafe_allow_html=True,
 )
 
 #  chat hadnling from here
