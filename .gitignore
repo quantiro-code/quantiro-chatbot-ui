@@ -1,0 +1,30 @@
+# Environment variables (contains backend URL / secrets - never commit)
+.env
+.env.local
+.env.*.local
+
+# Virtual environments
+.venv/
+
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Logs
+*.log
