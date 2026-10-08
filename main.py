@@ -8,7 +8,7 @@ load_dotenv()
 
 BACKEND_URL = os.getenv("BACKEND_URL") # Default to localhost if not set
 
-st.set_page_config(page_title="Assistant", page_icon="",layout="centered")
+st.set_page_config(page_title="Assistant", page_icon="quantiro_avatar.png",layout="centered")
 
 
 # LOADING CSS
